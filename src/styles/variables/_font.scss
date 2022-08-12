@@ -1,0 +1,20 @@
+@use 'sass:math';
+@use 'base';
+
+$font-size: max(0.8rem, calc(0.3rem + 0.5vw)) !default;
+$font-feature-settings: palt !default;
+$line-height: base.$ratio * 1em !default;
+$letter-spacing: 0.1em !default;
+
+@mixin define() {
+	:root {
+		font-size: $font-size;
+		font-feature-settings: $font-feature-settings;
+		line-height: $line-height;
+		letter-spacing: $letter-spacing;
+	}
+
+	* {
+		font-weight: unset;
+	}
+}
