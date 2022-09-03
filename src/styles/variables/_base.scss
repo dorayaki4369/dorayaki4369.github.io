@@ -1,4 +1,4 @@
-@use 'sass:math';
+@use "sass:math";
 
 $measure: 60em !default;
 $ratio: math.div(1 + math.sqrt(5), 2) !default;
@@ -7,23 +7,23 @@ $round: 0.5em !default;
 $circle: 9999vmax !default;
 
 @function space($number) {
-	@return 1em * math.pow($ratio, $number);
+    @return 1em * math.pow($ratio, $number);
 }
 
 @mixin define() {
-	:root {
-		--measure: #{$measure};
-		--ratio: #{$ratio};
-		--border-thin: #{$border-thin};
-		--round: #{$round};
-		--circle: #{$circle};
+    :root {
+        --measure: #{$measure};
+        --ratio: #{$ratio};
+        --border-thin: #{$border-thin};
+        --round: #{$round};
+        --circle: #{$circle};
 
-		@for $i from -5 through 5 {
-			--s#{$i}: #{space($i)};
-		}
-	}
+        @for $i from -5 through 5 {
+            --s#{$i}: #{space($i)};
+        }
+    }
 
-	* {
-		max-width: $measure;
-	}
+    * {
+        max-width: $measure;
+    }
 }
