@@ -1,13 +1,17 @@
 @use "sass:math";
 
-$measure: 60em !default;
+$measure: 30em !default;
 $ratio: math.div(1 + math.sqrt(5), 2) !default;
 $border-thin: 0.1em !default;
 $round: 0.5em !default;
 $circle: 9999vmax !default;
 
 @function space($number) {
-    @return 1em * math.pow($ratio, $number);
+    @return clamp(
+        #{1rem * math.pow($ratio * 0.8, $number)},
+        #{1rem * math.pow($ratio * 0.7, $number)} + #{math.div(math.div($number, $ratio), $ratio)}vw,
+        #{1rem * math.pow($ratio, $number)}
+    );
 }
 
 @mixin define() {
@@ -25,5 +29,16 @@ $circle: 9999vmax !default;
 
     * {
         max-width: $measure;
+        margin: 0;
+    }
+
+    html,
+    body,
+    div,
+    header,
+    nav,
+    main,
+    footer {
+        max-width: none;
     }
 }

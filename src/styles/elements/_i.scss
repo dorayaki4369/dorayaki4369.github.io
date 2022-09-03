@@ -1,6 +1,6 @@
 @use "../variables/font";
 
 i {
-    min-width: font.$line-height;
+    min-width: 1em;
     text-align: center;
 }

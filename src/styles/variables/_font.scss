@@ -1,25 +1,18 @@
 @use "sass:math";
 @use "base";
 
-//noinspection CssUnknownTarget
-@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;400;700&display=swap);
-
-$font-size: max(0.8rem, calc(0.3rem + 0.5vw)) !default;
-$font-family: "Noto Sans JP", sans-serif;
-$font-feature-settings: palt !default;
-$line-height: base.$ratio * 1em !default;
-$letter-spacing: 0.1em !default;
+@use "yakuhanjp/dist/scss/yakuhanjp-narrow" with (
+    $yakuhanjp-narrow-font-dir: "node_modules/yakuhanjp/dist/fonts"
+);
 
 @mixin define() {
-    :root {
-        font-size: $font-size;
-        font-family: $font-family;
-        font-feature-settings: $font-feature-settings;
-        line-height: $line-height;
-        letter-spacing: $letter-spacing;
-    }
-
     * {
-        font-weight: unset;
+        font-size: calc(0.8rem + 0.2vw);
+        font-weight: normal;
+        font-family: "YakuHanJP_Narrow", "Helvetica Neue", Arial, "Hiragino Sans",
+            "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+        font-feature-settings: "palt" 1;
+        line-height: base.$ratio;
+        letter-spacing: 0.1em;
     }
 }

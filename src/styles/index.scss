@@ -7,7 +7,9 @@
 @use "variables/theme";
 
 // elements
+@use "elements/heading";
 @use "elements/i";
+@use "elements/ulol";
 
 @include base.define();
 @include font.define();
