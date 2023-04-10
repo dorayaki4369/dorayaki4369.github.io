@@ -1,3 +1,3 @@
-# Dorayaki's site
+# dorayaki4369 site
 
-This repository is code for [dryk.net](https://dryk.net).
+This repository is the source code for [dryk.net](https://dryk.net).
