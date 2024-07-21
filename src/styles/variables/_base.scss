@@ -7,38 +7,41 @@ $round: 0.5em !default;
 $circle: 9999vmax !default;
 
 @function space($number) {
-    @return clamp(
-        #{1rem * math.pow($ratio * 0.8, $number)},
-        #{1rem * math.pow($ratio * 0.7, $number)} + #{math.div(math.div($number, $ratio), $ratio)}vw,
-        #{1rem * math.pow($ratio, $number)}
-    );
+  @return clamp(
+    #{1rem * math.pow($ratio * 0.8, $number)},
+    #{1rem * math.pow($ratio * 0.7, $number)} + #{math.div(
+        math.div($number, $ratio),
+        $ratio
+      )}vw,
+    #{1rem * math.pow($ratio, $number)}
+  );
 }
 
 @mixin define() {
-    :root {
-        --measure: #{$measure};
-        --ratio: #{$ratio};
-        --border-thin: #{$border-thin};
-        --round: #{$round};
-        --circle: #{$circle};
+  :root {
+    --measure: #{$measure};
+    --ratio: #{$ratio};
+    --border-thin: #{$border-thin};
+    --round: #{$round};
+    --circle: #{$circle};
 
-        @for $i from -5 through 5 {
-            --s#{$i}: #{space($i)};
-        }
+    @for $i from -5 through 5 {
+      --s#{$i}: #{space($i)};
     }
+  }
 
-    * {
-        max-width: $measure;
-        margin: 0;
-    }
+  * {
+    max-width: $measure;
+    margin: 0;
+  }
 
-    html,
-    body,
-    div,
-    header,
-    nav,
-    main,
-    footer {
-        max-width: none;
-    }
+  html,
+  body,
+  div,
+  header,
+  nav,
+  main,
+  footer {
+    max-width: none;
+  }
 }

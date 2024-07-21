@@ -4,14 +4,14 @@
 $themes: light, dark;
 
 $theme-color: (
-    background: (
-        white,
-        color.class-color("gray", 900),
-    ),
-    border: (
-        color.class-color("gray", 300),
-        color.class-color("gray", 300),
-    ),
+  background: (
+    white,
+    color.class-color("gray", 900),
+  ),
+  border: (
+    color.class-color("gray", 300),
+    color.class-color("gray", 300),
+  ),
 );
 
 // Define the css properties each of themes.
@@ -26,26 +26,29 @@ $theme-color: (
 // e.g. --background-color: white
 
 @mixin _define-theme-color($theme) {
-    @each $name, $colors in $theme-color {
-        @include color.define-variables($name, nth($colors, index($themes, $theme)));
-    }
+  @each $name, $colors in $theme-color {
+    @include color.define-variables(
+      $name,
+      nth($colors, index($themes, $theme))
+    );
+  }
 }
 
 @mixin define() {
-    :root {
-        // default
-        @media (prefers-color-scheme: light) {
-            @include _define-theme-color(light);
-        }
-
-        @media (prefers-color-scheme: dark) {
-            @include _define-theme-color(dark);
-        }
+  :root {
+    // default
+    @media (prefers-color-scheme: light) {
+      @include _define-theme-color(light);
     }
 
-    @each $theme in $themes {
-        .#{$theme}-theme {
-            @include _define-theme-color($theme);
-        }
+    @media (prefers-color-scheme: dark) {
+      @include _define-theme-color(dark);
     }
+  }
+
+  @each $theme in $themes {
+    .#{$theme}-theme {
+      @include _define-theme-color($theme);
+    }
+  }
 }

@@ -2,17 +2,17 @@
 @use "base";
 
 @use "yakuhanjp/dist/scss/yakuhanjp-narrow" with (
-    $yakuhanjp-narrow-font-dir: "node_modules/yakuhanjp/dist/fonts"
+  $yakuhanjp-narrow-font-dir: "node_modules/yakuhanjp/dist/fonts"
 );
 
 @mixin define() {
-    * {
-        font-size: calc(0.8rem + 0.2vw);
-        font-weight: normal;
-        font-family: "YakuHanJP_Narrow", "Helvetica Neue", Arial, "Hiragino Sans",
-            "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-        font-feature-settings: "palt" 1;
-        line-height: base.$ratio;
-        letter-spacing: 0.1em;
-    }
+  * {
+    font-size: calc(0.8rem + 0.2vw);
+    font-weight: normal;
+    font-family: "YakuHanJP_Narrow", "Helvetica Neue", Arial, "Hiragino Sans",
+      "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-feature-settings: "palt" 1;
+    line-height: base.$ratio;
+    letter-spacing: 0.1em;
+  }
 }
