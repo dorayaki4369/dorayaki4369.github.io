@@ -1,59 +1,82 @@
 <script>
-  import Counter from "./Counter.svelte";
-  import welcome from "$lib/images/svelte-welcome.webp";
-  import welcome_fallback from "$lib/images/svelte-welcome.png";
+  import Callout from "$lib/components/Callout.svelte";
+  import Center from "$lib/components/Center.svelte";
 </script>
 
 <svelte:head>
-  <title>Home</title>
-  <meta name="description" content="Svelte demo app" />
+  <title>dryk.net</title>
+  <meta name="description" content="dryk.net homepage" />
 </svelte:head>
 
-<section>
-  <h1>
-    <span class="welcome">
-      <picture>
-        <source srcset={welcome} type="image/webp" />
-        <img src={welcome_fallback} alt="Welcome" />
-      </picture>
-    </span>
+<Center>
+  <section>
+    <button data-role="primary">button</button>
+    <div role="button">div button</div>
+    <input type="button" value="Submit" />
+    <a href="http://example.com" role="button">button</a>
+    <Callout semantic="error">
+      <h3>Color</h3>
+      <p>
+        Callout content The CSS align-items property sets the align-self value
+        on all direct children as a group. In flexbox, it controls the alignment
+        of items on the cross axis. In grid layout, it controls the alignment of
+        items on the block axis within their grid areas.
+      </p>
+    </Callout>
 
-    to your new<br />SvelteKit app
-  </h1>
+    <Callout semantic="success">
+      Color
+      <p>
+        Callout content The CSS align-items property sets the align-self value
+        on all direct children as a group. In flexbox, it controls the alignment
+        of items on the cross axis. In grid layout, it controls the alignment of
+        items on the block axis within their grid areas.
+      </p>
+    </Callout>
 
-  <h2>
-    try editing <strong>src/routes/+page.svelte</strong>
-  </h2>
+    <Callout semantic="warning">
+      Color
+      <p>
+        Callout content The CSS align-items property sets the align-self value
+        on all direct children as a group. In flexbox, it controls the alignment
+        of items on the cross axis. In grid layout, it controls the alignment of
+        items on the block axis within their grid areas.
+      </p>
+    </Callout>
 
-  <Counter />
-</section>
+    <Callout semantic="info">
+      Color
+      <p>
+        Callout content The CSS align-items property sets the align-self value
+        on all direct children as a group. In flexbox, it controls the alignment
+        of items on the cross axis. In grid layout, it controls the alignment of
+        items on the block axis within their grid areas.
+      </p>
+    </Callout>
+
+    <Callout semantic="normal">
+      Color
+      <p>
+        Callout content The CSS align-items property sets the align-self value
+        on all direct children as a group. In flexbox, it controls the alignment
+        of items on the cross axis. In grid layout, it controls the alignment of
+        items on the block axis within their grid areas.
+      </p>
+    </Callout>
+
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>Heading 6</h6>
+  </section>
+</Center>
 
 <style>
   section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 0.6;
-  }
-
-  h1 {
-    width: 100%;
-  }
-
-  .welcome {
-    display: block;
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding: 0 0 calc(100% * 495 / 2048) 0;
-  }
-
-  .welcome img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    display: block;
+    gap: 1em;
   }
 </style>

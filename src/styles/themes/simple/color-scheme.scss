@@ -1,0 +1,93 @@
+:where([data-theme="simple"]) {
+  &[data-color-scheme="light"] {
+    --color-bg-1: white;
+    --color-bg-2: var(--color-ash-50);
+    --color-bg-3: var(--color-ash-100);
+    --color-bg-4: var(--color-ash-200);
+    --color-bg-5: var(--color-ash-300);
+    --color-on-bg: var(--color-ash-950);
+
+    --color-shadow: var(--color-ash-400);
+
+    --color-primary: var(--color-crimson-500);
+    --color-on-primary: var(--color-crimson-50);
+
+    --color-secondary: var(--color-charcoal-100);
+    --color-on-secondary: var(--color-charcoal-950);
+
+    --color-tertiary: var(--color-charcoal-300);
+    --color-on-tertiary: var(--color-charcoal-950);
+
+    --color-error: var(--color-crimson-200);
+    --color-on-error: var(--color-maroon-950);
+
+    --color-success: var(--color-lime-200);
+    --color-on-success: var(--color-lime-950);
+
+    --color-warning: var(--color-amber-200);
+    --color-on-warning: var(--color-amber-950);
+
+    --color-info: var(--color-sky-200);
+    --color-on-info: var(--color-sky-950);
+  }
+
+  &[data-color-scheme="dark"] {
+    --color-bg-1: var(--color-charcoal-900);
+    --color-bg-2: var(--color-charcoal-800);
+    --color-bg-3: var(--color-charcoal-700);
+    --color-bg-4: var(--color-charcoal-600);
+    --color-bg-5: var(--color-charcoal-500);
+    --color-on-bg: var(--color-charcoal-50);
+
+    --color-shadow: var(--color-charcoal-950);
+
+    --color-primary: var(--color-crimson-500);
+    --color-on-primary: var(--color-crimson-50);
+
+    --color-secondary: var(--color-charcoal-800);
+    --color-on-secondary: var(--color-charcoal-50);
+
+    --color-error: var(--color-maroon-700);
+    --color-on-error: var(--color-maroon-50);
+
+    --color-success: var(--color-forest-700);
+    --color-on-success: var(--color-forest-50);
+
+    --color-warning: var(--color-amber-700);
+    --color-on-warning: var(--color-amber-50);
+
+    --color-info: var(--color-sky-700);
+    --color-on-info: var(--color-sky-50);
+  }
+
+  * {
+    background-color: transparent;
+    color: var(--color-on-bg);
+  }
+  body,
+  main {
+    background-color: var(--color-bg-1);
+  }
+
+  * {
+    &[data-bg-level="1"] {
+      background-color: var(--color-bg-1);
+    }
+
+    &[data-bg-level="2"] {
+      background-color: var(--color-bg-2);
+    }
+
+    &[data-bg-level="3"] {
+      background-color: var(--color-bg-3);
+    }
+
+    &[data-bg-level="4"] {
+      background-color: var(--color-bg-4);
+    }
+
+    &[data-bg-level="5"] {
+      background-color: var(--color-bg-5);
+    }
+  }
+}

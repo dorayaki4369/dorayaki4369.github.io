@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+@use "modern-normalize";
+
+@use "styles/variable";
+@use "styles/base";
+
+@use "styles/themes/simple/style";
+
+* {
+  max-width: var(--measure);
+}
+
+html,
+body,
+div,
+header,
+nav,
+main,
+footer {
+  max-width: none;
+}
+
+* {
+  margin: unset;
+  padding: unset;
+}
+
+form {
+  display: contents;
+}

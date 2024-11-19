@@ -1,0 +1,22 @@
+[data-theme="simple"] {
+  scroll-behavior: smooth;
+
+  &[data-color-scheme="light"] {
+    --color-scroll-bg: transparent;
+    --color-scroll-thumb: var(--color-secondary);
+  }
+
+  &[data-color-scheme="dark"] {
+    --color-scroll-bg: transparent;
+    --color-scroll-thumb: var(--color-secondary);
+  }
+
+  *::-webkit-scrollbar {
+    background-color: transparent;
+    scrollbar-width: thin;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--color-scroll-thumb);
+  }
+}

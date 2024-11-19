@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 
-npm run format
-npm run lint
+# volta
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+pnpm run format
+pnpm run lint

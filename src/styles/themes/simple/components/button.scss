@@ -1,0 +1,38 @@
+@use "../../../variable" as vars;
+@use "../variable" as theme-vars;
+
+:where([data-theme="simple"]) {
+  button,
+  input[type="button"],
+  input[type="submit"],
+  [role="button"] {
+    --button-bg: var(--color-secondary);
+    --button-text: var(--color-on-secondary);
+    --button-border: var(--color-secondary);
+
+    display: block;
+    -webkit-appearance: button;
+    cursor: pointer;
+    border: theme-vars.$border-thin solid var(--button-bg);
+    border-radius: theme-vars.$rounded;
+    background-color: var(--button-border);
+    padding-inline: vars.s(-1);
+    padding-block: vars.s(-1);
+    color: var(--button-text);
+    text-align: center;
+
+    &:after {
+      content: initial;
+    }
+
+    &:hover {
+      border-color: var(--color-primary);
+    }
+
+    &[data-role="primary"] {
+      --button-bg: var(--color-primary);
+      --button-text: var(--color-on-primary);
+      --button-border: var(--color-primary);
+    }
+  }
+}

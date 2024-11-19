@@ -5,7 +5,7 @@
     <scripts>
       <script value="build" />
     </scripts>
-    <node-interpreter value="docker-compose://[$PROJECT_DIR$/docker-compose.yml]:app/node" />
+    <node-interpreter value="project" />
     <package-manager value="npm" />
     <envs />
     <method v="2" />

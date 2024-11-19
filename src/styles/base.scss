@@ -1,0 +1,26 @@
+@use "sass:math";
+
+@use "@fontsource-variable/noto-sans-jp";
+@use "@fontsource-variable/fira-code";
+
+@use "variable" as vars;
+
+$font-default: "Noto Sans JP Variable", "Helvetica Neue", Arial, "Hiragino Sans",
+  "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+$font-mono: "Fira Code Variable", monospace;
+$font-size: 1rem;
+$line-height: #{vars.s(0)};
+$letter-space: #{vars.s(-4)};
+
+* {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-family: $font-default;
+  font-feature-settings: "palt" 1;
+  letter-spacing: $letter-space;
+}
+
+pre,
+code {
+  font-family: $font-mono;
+}

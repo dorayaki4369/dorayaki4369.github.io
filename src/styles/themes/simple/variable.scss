@@ -1,0 +1,7 @@
+$rounded: 0.5em;
+$border-thin: max(0.08em, 1px);
+
+:where([data-theme="simple"]) {
+  --rounded: #{$rounded};
+  --border-thin: #{$border-thin};
+}

@@ -1,0 +1,66 @@
+@use "sass:math";
+@use "sass:color";
+
+$ratio: math.div(1 + math.sqrt(5), 2); /* Golden ratio */
+
+@function s($i) {
+  @return math.pow($ratio, $i) * 1rem;
+}
+
+$measure: s(8);
+
+/* Base */
+:root {
+  --ratio: #{$ratio};
+  --measure: #{$measure};
+
+  /* Spaces */
+
+  @for $i from -5 through 5 {
+    --s#{$i}: #{s($i)};
+  }
+
+  /* Colors */
+
+  @function pallet-colors($color) {
+    @return (
+      50: color.mix(white, $color, 90%),
+      100: color.mix(white, $color, 80%),
+      200: color.mix(white, $color, 60%),
+      300: color.mix(white, $color, 40%),
+      400: color.mix(white, $color, 20%),
+      500: $color,
+      600: color.mix(black, $color, 20%),
+      700: color.mix(black, $color, 40%),
+      800: color.mix(black, $color, 60%),
+      900: color.mix(black, $color, 80%),
+      950: color.mix(black, $color, 90%)
+    );
+  }
+
+  @mixin define-pallets($name, $color) {
+    @each $level, $value in pallet-colors($color) {
+      --color-#{$name}-#{$level}: #{$value};
+    }
+  }
+
+  $pallets: (
+    "ash": #c1c1c1,
+    "charcoal": #333333,
+    "maroon": maroon,
+    "scarlet": #c32e00,
+    "amber": #ffc516,
+    "lemon": #edea21,
+    "lime": #73ba08,
+    "forest": #0a7e3a,
+    "sky": #0b96ea,
+    "midnight": #052293,
+    "violet": #4c03bc,
+    "magenta": magenta,
+    "crimson": #d31431,
+  );
+
+  @each $name, $color in $pallets {
+    @include define-pallets($name, $color);
+  }
+}

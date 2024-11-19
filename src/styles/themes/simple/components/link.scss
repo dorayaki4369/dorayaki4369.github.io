@@ -1,0 +1,50 @@
+@property --link-gradient-percentage {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+:where([data-theme="simple"]) {
+  a {
+    display: inline-block;
+    text-decoration: none;
+
+    &::after {
+      display: block;
+      position: relative;
+      top: -0.1em;
+      transition: --link-gradient-percentage 300ms;
+      background: linear-gradient(
+        to right,
+        var(--color-primary) 0%,
+        var(--color-primary) var(--link-gradient-percentage),
+        var(--color-on-bg) var(--link-gradient-percentage),
+        var(--color-on-bg) 100%
+      );
+      width: 100%;
+      height: var(--border-thin);
+      content: "";
+    }
+
+    &:hover::after,
+    &:focus::after {
+      --link-gradient-percentage: 100%;
+    }
+
+    &[data-disable-underline="true"] {
+      &::after {
+        display: block;
+        transition: width 300ms;
+        background: var(--color-primary);
+        width: 0;
+        height: var(--border-thin);
+        content: "";
+      }
+
+      &:hover::after,
+      &:focus::after {
+        width: 100%;
+      }
+    }
+  }
+}

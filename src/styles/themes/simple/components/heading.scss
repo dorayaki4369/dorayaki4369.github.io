@@ -1,0 +1,40 @@
+@use "../../../variable" as vars;
+@use "../variable" as theme-vars;
+
+:where([data-theme="simple"]) {
+  h1,
+  .h1 {
+    font-size: #{vars.s(2)};
+    line-height: #{vars.s(2)};
+  }
+
+  h2,
+  .h2 {
+    font-size: #{vars.s(1.5)};
+    line-height: #{vars.s(1.5)};
+  }
+
+  h3,
+  .h3 {
+    font-size: #{vars.s(1)};
+    line-height: #{vars.s(1)};
+  }
+
+  h4,
+  .h4 {
+    font-size: #{vars.s(0.5)};
+    line-height: #{vars.s(0.5)};
+  }
+
+  h5,
+  .h5 {
+    font-size: #{vars.s(0.25)};
+    line-height: #{vars.s(0.25)};
+  }
+
+  h6,
+  .h6 {
+    font-size: #{vars.s(0)};
+    line-height: #{vars.s(0)};
+  }
+}
