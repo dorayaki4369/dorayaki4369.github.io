@@ -1,28 +1,31 @@
 <script lang="ts">
   import { browser } from "$app/environment";
+  import Icon from "$lib/components/Icon.svelte";
+  import { mdiWeatherNight, mdiWeatherSunny } from "@mdi/js";
 
-  function setOSlightDark(osLight: { matches: boolean }) {
-    if (osLight.matches) {
-      document.documentElement.setAttribute("data-color-scheme", "light");
-      return;
-    }
+  let scheme = $state.raw<"light" | "dark">("light");
+  $effect(() => {
+    document.documentElement.setAttribute("data-color-scheme", scheme);
+  });
 
-    document.documentElement.setAttribute("data-color-scheme", "dark");
+  let icon = $derived(scheme === "light" ? mdiWeatherSunny : mdiWeatherNight);
+
+  function toggleColorScheme() {
+    scheme = scheme === "light" ? "dark" : "light";
   }
 
   if (browser) {
+    function setOSlightDark(osLight: { matches: boolean }) {
+      scheme = osLight.matches ? "light" : "dark";
+    }
+
     const osLight = window.matchMedia("(prefers-color-scheme: light)");
     osLight.addEventListener("change", setOSlightDark);
 
     setOSlightDark(osLight);
   }
-
-  function toggleColorScheme() {
-    const current = document.documentElement.getAttribute("data-color-scheme");
-    const next = current === "light" ? "dark" : "light";
-
-    document.documentElement.setAttribute("data-color-scheme", next);
-  }
 </script>
 
-<button on:click={toggleColorScheme}> Toggle </button>
+<button onclick={toggleColorScheme}>
+  <Icon path={icon} />
+</button>

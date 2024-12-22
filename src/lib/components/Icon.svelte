@@ -17,7 +17,7 @@
 
 <style>
   * {
-    --size: var(--s1);
+    --size: 1em;
   }
 
   svg {

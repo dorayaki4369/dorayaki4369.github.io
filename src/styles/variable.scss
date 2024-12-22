@@ -24,17 +24,17 @@ $measure: s(8);
 
   @function pallet-colors($color) {
     @return (
-      50: color.mix(white, $color, 90%),
-      100: color.mix(white, $color, 80%),
-      200: color.mix(white, $color, 60%),
-      300: color.mix(white, $color, 40%),
-      400: color.mix(white, $color, 20%),
+      50: color.adjust($color, $lightness: 45%),
+      100: color.adjust($color, $lightness: 40%),
+      200: color.adjust($color, $lightness: 30%),
+      300: color.adjust($color, $lightness: 20%),
+      400: color.adjust($color, $lightness: 10%),
       500: $color,
-      600: color.mix(black, $color, 20%),
-      700: color.mix(black, $color, 40%),
-      800: color.mix(black, $color, 60%),
-      900: color.mix(black, $color, 80%),
-      950: color.mix(black, $color, 90%)
+      600: color.adjust($color, $lightness: -10%),
+      700: color.adjust($color, $lightness: -20%),
+      800: color.adjust($color, $lightness: -30%),
+      900: color.adjust($color, $lightness: -40%),
+      950: color.adjust($color, $lightness: -45%)
     );
   }
 
@@ -46,9 +46,9 @@ $measure: s(8);
 
   $pallets: (
     "ash": #c1c1c1,
-    "charcoal": #333333,
-    "maroon": maroon,
-    "scarlet": #c32e00,
+    "charcoal": #666666,
+    "red": #ff0000,
+    "scarlet": #e63c1a,
     "amber": #ffc516,
     "lemon": #edea21,
     "lime": #73ba08,

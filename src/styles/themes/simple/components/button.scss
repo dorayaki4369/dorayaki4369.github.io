@@ -4,8 +4,7 @@
 :where([data-theme="simple"]) {
   button,
   input[type="button"],
-  input[type="submit"],
-  [role="button"] {
+  input[type="submit"] {
     --button-bg: var(--color-secondary);
     --button-text: var(--color-on-secondary);
     --button-border: var(--color-secondary);

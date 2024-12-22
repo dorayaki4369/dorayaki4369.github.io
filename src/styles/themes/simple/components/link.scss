@@ -12,7 +12,7 @@
     &::after {
       display: block;
       position: relative;
-      top: -0.1em;
+      top: 0.4cap;
       transition: --link-gradient-percentage 300ms;
       background: linear-gradient(
         to right,
@@ -31,7 +31,7 @@
       --link-gradient-percentage: 100%;
     }
 
-    &[data-disable-underline="true"] {
+    &[data-animate-underline="true"] {
       &::after {
         display: block;
         transition: width 300ms;
@@ -44,6 +44,12 @@
       &:hover::after,
       &:focus::after {
         width: 100%;
+      }
+    }
+
+    &[data-disable-underline="true"] {
+      &::after {
+        display: none;
       }
     }
   }

@@ -1,17 +1,28 @@
 <script lang="ts">
   import { browser } from "$app/environment";
+  import { afterNavigate } from "$app/navigation";
   import DarkLight from "$lib/components/DarkLight.svelte";
 
-  const links: { path: string; title: string; current: boolean }[] = [
+  let links: { path: string; title: string; current: boolean }[] = [
     { path: "/", title: "Home", current: false },
+    { path: "/blog", title: "Blog", current: false },
   ];
 
-  if (browser) {
-    const url = new URL(window.location.href);
-    links.forEach((link) => {
-      link.current = link.path === url.pathname;
-    });
+  function setLinkCurrent() {
+    if (browser) {
+      const url = new URL(window.location.href);
+      links = links.map((link) => {
+        if (link.path === "/blog") {
+          link.current = url.pathname.startsWith(link.path);
+        } else {
+          link.current = link.path === url.pathname;
+        }
+        return link;
+      });
+    }
   }
+
+  afterNavigate(() => setLinkCurrent());
 </script>
 
 <div>
@@ -22,7 +33,7 @@
           <a
             href={path}
             aria-current={current}
-            data-disable-underline={!current}
+            data-animate-underline={!current}
           >
             {title}
           </a>
