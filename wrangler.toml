@@ -2,5 +2,5 @@ name = "my-site"
 pages_build_output_dir = ".svelte-kit/cloudflare"
 compatibility_date = "2024-12-29"
 
-[env]
-production = { }
+[vars]
+NODE_VERSION = "22.12.0"

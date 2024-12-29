@@ -13,7 +13,7 @@
     "test": "pnpm test:integration && pnpm test:unit",
     "test:integration": "playwright test",
     "test:unit": "vitest",
-    "deploy": "pnpm run build && wrangler pages deploy",
+    "deploy": "pnpm build && wrangler pages deploy",
     "cf-typegen": "wrangler types && mv worker-configuration.d.ts src/"
   },
   "dependencies": {
