@@ -3,16 +3,18 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
+    "dev": "vite dev",
     "build": "vite build",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "dev": "vite dev",
     "format": "prettier --write .",
     "lint": "prettier --check . && eslint .",
     "preview": "vite preview",
-    "test": "npm run test:integration && npm run test:unit",
+    "test": "pnpm test:integration && pnpm test:unit",
     "test:integration": "playwright test",
-    "test:unit": "vitest"
+    "test:unit": "vitest",
+    "deploy": "pnpm run build && wrangler pages deploy",
+    "cf-typegen": "wrangler types && mv worker-configuration.d.ts src/"
   },
   "dependencies": {
     "@fontsource-variable/jetbrains-mono": "^5.1.1",
@@ -21,6 +23,7 @@
     "modern-normalize": "^3.0.1"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241224.0",
     "@eslint/js": "^9.17.0",
     "@playwright/test": "^1.49.1",
     "@sveltejs/adapter-cloudflare": "^4.9.0",
@@ -44,7 +47,8 @@
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.18.1",
     "vite": "^5.4.11",
-    "vitest": "^2.1.8"
+    "vitest": "^2.1.8",
+    "wrangler": "^3.99.0"
   },
   "engines": {
     "node": "22.12.0",
