@@ -1,31 +1,13 @@
 <script lang="ts">
-  import { browser } from "$app/environment";
-  import Icon from "$lib/components/Icon.svelte";
+  import { getColorScheme } from "$lib/stores/color-scheme.svelte.js";
+  import Icon               from "$lib/components/Icon.svelte";
   import { mdiWeatherNight, mdiWeatherSunny } from "@mdi/js";
 
-  let scheme = $state.raw<"light" | "dark">("light");
-  $effect(() => {
-    document.documentElement.setAttribute("data-color-scheme", scheme);
-  });
+  const scheme = getColorScheme();
 
-  let icon = $derived(scheme === "light" ? mdiWeatherSunny : mdiWeatherNight);
-
-  function toggleColorScheme() {
-    scheme = scheme === "light" ? "dark" : "light";
-  }
-
-  if (browser) {
-    function setOSlightDark(osLight: { matches: boolean }) {
-      scheme = osLight.matches ? "light" : "dark";
-    }
-
-    const osLight = window.matchMedia("(prefers-color-scheme: light)");
-    osLight.addEventListener("change", setOSlightDark);
-
-    setOSlightDark(osLight);
-  }
+  let icon = $derived(scheme.value === "light" ? mdiWeatherSunny : mdiWeatherNight);
 </script>
 
-<button onclick={toggleColorScheme}>
+<button onclick={scheme.toggle} aria-label="Toggle light/dark theme">
   <Icon path={icon} />
 </button>

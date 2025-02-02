@@ -9,7 +9,7 @@
 
 <Center>
   <section>
-    <h1>Hello!</h1>
+    <h1>Hi! I'm Ryuya Hirayama 👋</h1>
   </section>
 </Center>
 
